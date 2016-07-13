@@ -5,6 +5,7 @@
 
 body {
   padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 section {
@@ -106,4 +107,18 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+/* footer */
+
+footer {
+    margin-top: 30px;
+    border-top: 1px solid #e7e7e7;
+    background-color: #f8f8f8;
+    text-align: center;
+    height: 55px;
+}
+
+.copyright {
+    padding-top: 15px;
 }
