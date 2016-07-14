@@ -5,6 +5,7 @@
 
 body {
   padding-top: 60px;
+  padding-bottom: 20px;
 }
 
 section {
@@ -192,4 +193,19 @@ span.picture {
   input {
     border: 0;
   }
+  
+/* footer */
+
+footer {
+    margin-top: 30px;
+    border-top: 1px solid #e7e7e7;
+    background-color: #f8f8f8;
+    text-align: center;
+    height: 55px;
+}
+
+.copyright {
+    padding: 20px 0;
+    font-size: 12px;
+    color: #666;
 }
