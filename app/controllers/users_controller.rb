@@ -21,12 +21,12 @@ class UsersController < ApplicationController
   end
   
   def edit
-    #@user = User.find(params[:id])
+    #before_actionの為削除 @user = User.find(params[:id])
     render 'edit'
   end
   
   def update
-    #@user = User.find(params[:id])
+    #before_actionの為削除 @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       flash[:success] = "情報を更新しました。"
       redirect_to @user
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
  #before_action
   def correct_user
     @user = User.find(params[:id])
-    edirect_to(root_path) unless current_user?(@user)
+    redirect_to(root_path) unless current_user
   end
 
 end
