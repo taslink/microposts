@@ -41,6 +41,16 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to root_path, notice: 'アカウントを削除しました'
   end
+  
+  def followeings
+    @user = User.find(params[:id])
+    
+  end
+  
+  def followers
+    @user = User.find(params[:id])
+    
+  end
 
 
   private
