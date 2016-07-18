@@ -24,6 +24,16 @@
       <li id="follow_list-<%= user.id %>">
       <%= link_to gravatar_for(user, size: 50), user %>
       <span class="follow_user"><%= link_to user.name, user %></span>
+      
+      <% if params[:action] == 'followings' %>
+      <% following_relationship =  @user.following_relationships.find_by(followed_id: user.id) %>
+      <span><%= time_ago_in_words(following_relationship.created_at) %> 前にフォローしました</span>
+      
+      <% elsif params[:action] == 'followers' %>
+      <% follower_relationship =  @user.follower_relationships.find_by(follower_id: user.id) %>
+      <span><%= time_ago_in_words(follower_relationship.created_at) %> 前にフォローされました</span>
+      <% end %>
+      
       </li>
     <% end %>
     </ol>
