@@ -23,7 +23,6 @@ class UsersController < ApplicationController
   
   def edit
     #before_actionの為削除 @user = User.find(params[:id])
-    render 'edit'
   end
   
   def update
@@ -42,14 +41,18 @@ class UsersController < ApplicationController
     redirect_to root_path, notice: 'アカウントを削除しました'
   end
   
-  def followeings
-    @user = User.find(params[:id])
-    
+  def followings
+    @title = "Followings List"
+    @user  = User.find(params[:id])
+    @users = @user.following_users.order(created_at: :desc)
+    render 'show_follow'
   end
   
   def followers
-    @user = User.find(params[:id])
-    
+    @title = "Followers List"
+    @user  = User.find(params[:id])
+    @users = @user.follower_users.order(created_at: :desc)
+    render 'show_follow'
   end
 
 

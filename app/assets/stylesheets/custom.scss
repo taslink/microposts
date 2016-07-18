@@ -209,6 +209,7 @@ aside {
   }
 }
 
+
 aside {
   textarea {
     height: 100px;
@@ -222,7 +223,30 @@ span.picture {
     border: 0;
   }
 }
-  
+
+
+/* follow_list */
+
+.follow_list {
+  list-style: none;
+  padding: 0;
+  li {
+    height: 81px;
+    border-top: 1px solid #e8e8e8;
+  }
+  .follow_user {
+    display: block;
+    margin-top: 15px;
+    padding-top: 0;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 15px;
+  }
+}
+
+
 /* footer */
 
 footer {
