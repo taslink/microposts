@@ -2,4 +2,5 @@
   <ol class="microposts">
     <%= render @feed_items %>
   </ol>
+  <%= paginate @feed_items %><br><%= page_entries_info @feed_items %>
 <% end %>

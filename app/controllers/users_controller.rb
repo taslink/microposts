@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:index]
+  
+  def index
+    # @users = User.all
+    @users = User.page(params[:page])
+  end
   
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.order(created_at: :desc)
+    @microposts = @user.microposts.order(created_at: :desc).page(params[:page])
   end
   
   def new
@@ -44,14 +50,14 @@ class UsersController < ApplicationController
   def followings
     @title = "Followings List"
     @user  = User.find(params[:id])
-    @users = @user.following_users.order(created_at: :desc)
+    @users = @user.following_users.order(created_at: :desc).page(params[:page])
     render 'show_follow'
   end
   
   def followers
     @title = "Followers List"
     @user  = User.find(params[:id])
-    @users = @user.follower_users.order(created_at: :desc)
+    @users = @user.follower_users.order(created_at: :desc).page(params[:page])
     render 'show_follow'
   end
 
