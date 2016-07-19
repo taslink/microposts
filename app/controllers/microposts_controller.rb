@@ -1,13 +1,16 @@
 class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create]
 
+#https://techacademy-taslink.c9users.io/microposts
+
+
   def create
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc)
+      @feed_items = current_user.feed_items.includes(:user).order(created_at: :desc).page(params[:page])
       render 'static_pages/home'
     end
   end
